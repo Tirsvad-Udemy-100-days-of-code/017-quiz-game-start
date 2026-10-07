@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-07 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | pending |
+| 2026-10-07 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | [0741def] |
 
 ---
 
@@ -54,3 +54,4 @@ Go — the checklist pass found no failing mandatory criterion: 9 criteria pass,
 
 [MIL-004]: ../../milestones/mil-004-next-question.md
 [QC-PY-001]: ../../../framework/qc/qc-programming-python.md
+[0741def]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/0741defd0373768175eec215d95872e6ff92b761
