@@ -131,8 +131,6 @@ Open `docs/doxygen/html/index.html` in a browser. The folder `docs/doxygen/` is 
 
 ```text
 .
-├── .agents/                   Skills for AI agents (Codex CLI and similar tools)
-├── .claude/                   The same skills for Claude Code
 ├── .github/workflows/ci.yml   Continuous integration
 ├── docs/                      Project documents: business case, stakeholders, plan, milestones, reviews
 ├── framework/                 SQA and QC framework (Git submodule, not needed to run the program)
@@ -152,7 +150,6 @@ Open `docs/doxygen/html/index.html` in a browser. The folder `docs/doxygen/` is 
 │   └── test_quiz_brain.py     Tests of the QuizBrain class
 ├── .gitignore
 ├── .gitmodules                Location of the framework submodule
-├── AGENTS.md                  Rules for AI agents working in this repository
 ├── Doxyfile                   Doxygen configuration
 ├── LICENSE
 ├── pyproject.toml             Project configuration and tool settings
