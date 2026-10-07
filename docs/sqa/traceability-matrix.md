@@ -9,8 +9,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-07 | Proposed | Jens Tirsvad Nielsen | S01 | Added the row for the Python code of MIL-001 and RC-010 | [1c2c852] |
 | 2026-10-07 | Proposed | Jens Tirsvad Nielsen | S01 | Added the row for the Python code of MIL-002 and RC-011<br>Coverage notes: source code now has rows | [8142317] |
+| 2026-10-07 | Proposed | Jens Tirsvad Nielsen | S01 | Added the row for the Python code of MIL-003 and RC-012 | [1cda99a] |
 
 ---
 
@@ -35,12 +35,13 @@ updated whenever an artifact instance is created or reviewed.
 | [MIL-006] | Milestone / Gateway | en | it | [BC-001], [MIL-005] | - | [RC-009] |
 | Python code of MIL-001 (`src/constants.py`, `tests/test_data.py`) | Python Source Code (PY) | - | - | [MIL-001] | - | [RC-010] |
 | Python code of MIL-002 (`src/question_model.py`, `tests/test_question_model.py`) | Python Source Code (PY) | - | - | [MIL-002] | - | [RC-011] |
+| Python code of MIL-003 (`src/main.py`, `src/constants.py`, `tests/test_main.py`) | Python Source Code (PY) | - | - | [MIL-003] | - | [RC-012] |
 
 ## Coverage Notes
 
 - In Upstream, `-` means foundational (the Business Case has no prerequisite artifact). In Downstream, `-` means nothing is built on the instance yet; the code rows get a downstream link when a later gateway builds on them. In Last Reviewed, `-` would mean no review record exists; every row above has one.
-- Types with no instance in this project yet: KPI, RA, BMC, BPMN, UCD, US, UC, DM, SSD, OC, SD, DCD, ERD, ADR, DICT, GOV. Use cases and user stories are not planned (Project Plan, open issues). The source-code type PY has one row per gateway, added when the gateway's code is reviewed (MIL-001 and MIL-002 so far).
-- Review records RC-001 to RC-011 and this matrix have no QC checklist and are not reviewed.
+- Types with no instance in this project yet: KPI, RA, BMC, BPMN, UCD, US, UC, DM, SSD, OC, SD, DCD, ERD, ADR, DICT, GOV. Use cases and user stories are not planned (Project Plan, open issues). The source-code type PY has one row per gateway, added when the gateway's code is reviewed (MIL-001 to MIL-003 so far).
+- Review records RC-001 to RC-012 and this matrix have no QC checklist and are not reviewed.
 
 ---
 
@@ -64,5 +65,6 @@ updated whenever an artifact instance is created or reviewed.
 [RC-009]: ./reviews/rc-009-mil-006.md
 [RC-010]: ./reviews/rc-010-python-mil-001.md
 [RC-011]: ./reviews/rc-011-python-mil-002.md
-[1c2c852]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/1c2c852b86fb8c330f0cd918eccefd2240b87700
+[RC-012]: ./reviews/rc-012-python-mil-003.md
 [8142317]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/814231725751cc702f911f939b6427268d7a8b85
+[1cda99a]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/1cda99ac623671380ee5bfae483f3468bd1b1241
