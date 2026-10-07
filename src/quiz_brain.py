@@ -18,6 +18,13 @@ class QuizBrain:
         ## @brief The questions of the quiz, in the order they are asked.
         self.question_list = question_list
 
+    def still_has_questions(self) -> bool:
+        """! @brief Tells whether there are questions left to ask.
+        @return True while `question_number` is below the number of questions, and
+        False once every question has been asked.
+        """
+        return self.question_number < len(self.question_list)
+
     def next_question(self) -> None:
         """! @brief Asks the player the current question.
 
