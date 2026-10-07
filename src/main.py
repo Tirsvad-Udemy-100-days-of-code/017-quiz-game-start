@@ -31,15 +31,16 @@ def build_question_bank(raw_questions: list[dict[str, str]]) -> list[Question]:
 
 
 def main() -> None:
-    """! @brief Builds the question bank and asks the player the first question.
+    """! @brief Builds the question bank and asks the player every question.
 
-    A later lecture part replaces the single question with a loop over all of them.
+    The answers are not checked yet; a later lecture part does that.
     @return Nothing.
     """
     question_bank = build_question_bank(question_data)
     logger.info(LOG_QUESTIONS_LOADED, len(question_bank))
     quiz = QuizBrain(question_bank)
-    quiz.next_question()
+    while quiz.still_has_questions():
+        quiz.next_question()
 
 
 if __name__ == "__main__":

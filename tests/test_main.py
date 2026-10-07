@@ -71,13 +71,27 @@ def test_main_logs_the_number_of_questions_when_it_runs(
     assert LOG_QUESTIONS_LOADED % EXPECTED_QUESTION_COUNT in caplog.messages
 
 
-def test_main_asks_the_first_question_when_it_runs(
+def test_main_asks_every_question_in_order_when_it_runs(
     scripted_input: ScriptedInput,
 ) -> None:
     main()
 
-    first_text = question_data[0][QUESTION_KEY_TEXT]
-    assert scripted_input.prompts == [PROMPT_QUESTION.format(number=1, text=first_text)]
+    expected_prompts = [
+        PROMPT_QUESTION.format(number=number, text=entry[QUESTION_KEY_TEXT])
+        for number, entry in enumerate(question_data, start=1)
+    ]
+    assert scripted_input.prompts == expected_prompts
+
+
+def test_main_asks_exactly_twelve_questions_when_twelve_answers_are_scripted(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    fake_input = ScriptedInput([ANSWER_TRUE] * EXPECTED_QUESTION_COUNT)
+    monkeypatch.setattr("builtins.input", fake_input)
+
+    main()
+
+    assert len(fake_input.prompts) == EXPECTED_QUESTION_COUNT
 
 
 def test_importing_main_does_not_ask_for_input_or_print_when_imported(
