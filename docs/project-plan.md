@@ -32,12 +32,12 @@ The plan schedules the six gateways that take the day 17 quiz assignment from th
 
 | Gateway | Document | Window | Decision date | Owner | Stories | Main deliverable | Milestone |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| G1 Project foundation | [MIL-001] | 2026-10-07 to 2026-10-10 | 2026-10-10 | S01 | — | Starter files in `src/`, `pyproject.toml`, `.gitignore`, `constants.py`, `Doxyfile`, README, continuous-integration (CI) workflow, repository description and topics | |
-| G2 Question class | [MIL-002] | 2026-10-11 to 2026-10-12 | 2026-10-12 | S01 | — | `Question` class with `text` and `answer`, and its tests | |
-| G3 Question bank | [MIL-003] | 2026-10-13 to 2026-10-14 | 2026-10-14 | S01 | — | The `question_bank` of 12 `Question` objects built from `question_data` | |
-| G4 Next question | [MIL-004] | 2026-10-15 to 2026-10-16 | 2026-10-16 | S01 | — | `QuizBrain` with `question_number`, `question_list` and `next_question` | |
-| G5 Quiz loop | [MIL-005] | 2026-10-17 to 2026-10-18 | 2026-10-18 | S01 | — | `still_has_questions` and the `while` loop that asks every question | |
-| G6 Answers and score | [MIL-006] | 2026-10-19 to 2026-10-21 | 2026-10-21 | S01 | — | `check_answer`, the running score, the final score, final README check | |
+| G1 Project foundation | [MIL-001] | 2026-10-07 to 2026-10-10 | 2026-10-10 | S01 | — | Starter files in `src/`, `pyproject.toml`, `.gitignore`, `constants.py`, `Doxyfile`, README, continuous-integration (CI) workflow, repository description and topics | [Milestone 62] |
+| G2 Question class | [MIL-002] | 2026-10-11 to 2026-10-12 | 2026-10-12 | S01 | — | `Question` class with `text` and `answer`, and its tests | [Milestone 63] |
+| G3 Question bank | [MIL-003] | 2026-10-13 to 2026-10-14 | 2026-10-14 | S01 | — | The `question_bank` of 12 `Question` objects built from `question_data` | [Milestone 64] |
+| G4 Next question | [MIL-004] | 2026-10-15 to 2026-10-16 | 2026-10-16 | S01 | — | `QuizBrain` with `question_number`, `question_list` and `next_question` | [Milestone 65] |
+| G5 Quiz loop | [MIL-005] | 2026-10-17 to 2026-10-18 | 2026-10-18 | S01 | — | `still_has_questions` and the `while` loop that asks every question | [Milestone 66] |
+| G6 Answers and score | [MIL-006] | 2026-10-19 to 2026-10-21 | 2026-10-21 | S01 | — | `check_answer`, the running score, the final score, final README check | [Milestone 67] |
 
 ```plantuml
 @startgantt
@@ -113,4 +113,10 @@ A No-Go on a gateway stops the chain: the later gateways start from the code the
 [MIL-004]: ./milestones/mil-004-next-question.md
 [MIL-005]: ./milestones/mil-005-quiz-loop.md
 [MIL-006]: ./milestones/mil-006-answers-and-score.md
+[Milestone 62]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/milestone/62
+[Milestone 63]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/milestone/63
+[Milestone 64]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/milestone/64
+[Milestone 65]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/milestone/65
+[Milestone 66]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/milestone/66
+[Milestone 67]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/milestone/67
 [ab361ed]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/ab361edf622585f77249d7782a9e2619f7d85cfc
