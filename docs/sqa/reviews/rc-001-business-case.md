@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-07 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | pending |
+| 2026-10-07 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | [ab361ed] |
 
 ---
 
@@ -65,3 +65,4 @@ Go — every mandatory criterion of the type's checklist and of QC-LANG-001 pass
 [BC-001]: ../../business-case.md
 [QC-BC-001]: ../../../framework/qc/qc-business-case.md
 [QC-LANG-001]: ../../../framework/qc/qc-language-domain.md
+[ab361ed]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/ab361edf622585f77249d7782a9e2619f7d85cfc

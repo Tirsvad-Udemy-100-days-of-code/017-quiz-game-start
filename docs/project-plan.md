@@ -11,7 +11,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-07 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version | pending |
+| 2026-10-07 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version | [ab361ed] |
 
 ---
 
@@ -113,3 +113,4 @@ A No-Go on a gateway stops the chain: the later gateways start from the code the
 [MIL-004]: ./milestones/mil-004-next-question.md
 [MIL-005]: ./milestones/mil-005-quiz-loop.md
 [MIL-006]: ./milestones/mil-006-answers-and-score.md
+[ab361ed]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/ab361edf622585f77249d7782a9e2619f7d85cfc

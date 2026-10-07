@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-07 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | pending |
+| 2026-10-07 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | [ab361ed] |
 
 ---
 
@@ -71,3 +71,4 @@ Go — the plan is complete, consistent with BC-001 and the six milestone docume
 
 [PP-001]: ../../project-plan.md
 [QC-LANG-001]: ../../../framework/qc/qc-language-domain.md
+[ab361ed]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/ab361edf622585f77249d7782a9e2619f7d85cfc
