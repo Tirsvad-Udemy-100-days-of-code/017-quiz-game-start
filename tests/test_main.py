@@ -11,10 +11,12 @@ from constants import (
     ANSWER_FALSE,
     ANSWER_TRUE,
     LOG_QUESTIONS_LOADED,
+    PROMPT_QUESTION,
     QUESTION_KEY_ANSWER,
     QUESTION_KEY_TEXT,
 )
 from data import question_data
+from fakes import ScriptedInput
 from main import build_question_bank, main
 from question_model import Question
 
@@ -59,6 +61,7 @@ def test_bank_follows_the_given_data_when_it_is_not_the_course_data() -> None:
     ]
 
 
+@pytest.mark.usefixtures("scripted_input")
 def test_main_logs_the_number_of_questions_when_it_runs(
     caplog: pytest.LogCaptureFixture,
 ) -> None:
@@ -66,6 +69,15 @@ def test_main_logs_the_number_of_questions_when_it_runs(
         main()
 
     assert LOG_QUESTIONS_LOADED % EXPECTED_QUESTION_COUNT in caplog.messages
+
+
+def test_main_asks_the_first_question_when_it_runs(
+    scripted_input: ScriptedInput,
+) -> None:
+    main()
+
+    first_text = question_data[0][QUESTION_KEY_TEXT]
+    assert scripted_input.prompts == [PROMPT_QUESTION.format(number=1, text=first_text)]
 
 
 def test_importing_main_does_not_ask_for_input_or_print_when_imported(

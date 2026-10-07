@@ -25,6 +25,8 @@ pythonpath = ["src"]
 [tool.ruff]
 line-length = 88
 target-version = "py313"
+# The modules in src/ and the helpers in tests/ (fakes, conftest) are first-party code.
+src = ["src", "tests"]
 # src/data.py is the course's data file and is kept byte-identical to the starter file.
 extend-exclude = ["src/data.py"]
 
