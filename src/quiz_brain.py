@@ -2,7 +2,13 @@
 @brief The logic of the quiz: which question is asked next, and how it is asked.
 """
 
-from constants import PROMPT_QUESTION
+from constants import (
+    FEEDBACK_CORRECT_ANSWER,
+    FEEDBACK_RIGHT,
+    FEEDBACK_SCORE,
+    FEEDBACK_WRONG,
+    PROMPT_QUESTION,
+)
 from question_model import Question
 
 
@@ -17,6 +23,8 @@ class QuizBrain:
         self.question_number = 0
         ## @brief The questions of the quiz, in the order they are asked.
         self.question_list = question_list
+        ## @brief The number of questions the player has answered right so far.
+        self.score = 0
 
     def still_has_questions(self) -> bool:
         """! @brief Tells whether there are questions left to ask.
@@ -29,8 +37,8 @@ class QuizBrain:
         """! @brief Asks the player the current question.
 
         Takes the question at the current position, moves the position on so that
-        `question_number` is the number of the question being asked, and reads the
-        player's answer. The answer is not checked yet.
+        `question_number` is the number of the question being asked, reads the
+        player's answer and checks it.
         @return Nothing.
         """
         current_question = self.question_list[self.question_number]
@@ -38,5 +46,24 @@ class QuizBrain:
         prompt = PROMPT_QUESTION.format(
             number=self.question_number, text=current_question.text
         )
-        # The answer is read but not used yet: a later lecture part checks it.
-        input(prompt)
+        user_answer = input(prompt)
+        self.check_answer(user_answer, current_question.answer)
+
+    def check_answer(self, user_answer: str, correct_answer: str) -> None:
+        """! @brief Checks the player's answer and shows how the player is doing.
+
+        The comparison ignores letter case. A right answer adds one to the score;
+        any other text counts as wrong. The player sees whether the answer was
+        right, the correct answer and the running score, then a blank line.
+        @param user_answer The answer the player typed.
+        @param correct_answer The correct answer of the question.
+        @return Nothing.
+        """
+        if user_answer.lower() == correct_answer.lower():
+            self.score += 1
+            print(FEEDBACK_RIGHT)
+        else:
+            print(FEEDBACK_WRONG)
+        print(FEEDBACK_CORRECT_ANSWER.format(answer=correct_answer))
+        print(FEEDBACK_SCORE.format(score=self.score, answered=self.question_number))
+        print()

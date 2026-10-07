@@ -24,3 +24,21 @@ LOG_QUESTIONS_LOADED: Final = "Loaded %d questions."
 
 ## @brief Prompt for one question; `number` is its number and `text` its statement.
 PROMPT_QUESTION: Final = "Q.{number}: {text} (True/False)?: "
+
+## @brief Feedback after a right answer.
+FEEDBACK_RIGHT: Final = "You got it right!"
+
+## @brief Feedback after a wrong answer.
+FEEDBACK_WRONG: Final = "That's wrong."
+
+## @brief Tells the player the correct answer; `answer` is the correct answer.
+FEEDBACK_CORRECT_ANSWER: Final = "The correct answer was: {answer}."
+
+## @brief Running score; `score` is the points, `answered` the questions asked so far.
+FEEDBACK_SCORE: Final = "Your current score is: {score}/{answered}"
+
+## @brief Message when the last question has been answered.
+MESSAGE_QUIZ_COMPLETE: Final = "You've completed the quiz"
+
+## @brief Final score; `score` is the points, `total` the number of questions.
+MESSAGE_FINAL_SCORE: Final = "Your final score was: {score}/{total}"
