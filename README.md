@@ -115,7 +115,7 @@ mypy --strict src tests
 
 ## Continuous integration
 
-The workflow `.github/workflows/ci.yml` runs on every push and pull request. It sets up Python 3.13, upgrades pip, installs the development tools with `python -m pip install --group dev`, and runs `ruff check`, `ruff format --check`, `mypy --strict` and `pytest`. GitHub Actions and Gitea Actions both read this folder; on Gitea the repository needs an Actions runner.
+The workflow `.gitea/workflows/ci.yml` runs on every push and pull request. It sets up Python 3.13, upgrades pip, installs the development tools with `python -m pip install --group dev`, and runs `ruff check`, `ruff format --check`, `mypy --strict` and `pytest`. It is run by Gitea Actions, so the Gitea repository needs an Actions runner. The GitHub copy of the repository does not run it; to run the same checks there, copy the file to `.github/workflows/ci.yml` (GitHub accepts workflow changes only from a token with the `workflow` scope).
 
 ## Build the source documentation
 
@@ -131,7 +131,7 @@ Open `docs/doxygen/html/index.html` in a browser. The folder `docs/doxygen/` is 
 
 ```text
 .
-├── .github/workflows/ci.yml   Continuous integration
+├── .gitea/workflows/ci.yml    Continuous integration (Gitea Actions)
 ├── docs/                      Project documents: business case, stakeholders, plan, milestones, reviews
 ├── framework/                 SQA and QC framework (Git submodule, not needed to run the program)
 ├── quiz-game-start/           The course's starter files, unchanged

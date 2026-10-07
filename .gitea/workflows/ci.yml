@@ -1,7 +1,9 @@
 # Continuous integration for the Quiz Game.
 #
-# Read by GitHub Actions and by Gitea Actions (the Gitea repository needs an
-# Actions runner). Runs the same checks as the README, "Run the tests".
+# Run by Gitea Actions. The file lives in .gitea/workflows, not .github/workflows:
+# GitHub refuses pushes that touch .github/workflows from a token without the
+# workflow scope, and that stopped the push mirror to GitHub. Runs the same
+# checks as the README, "Run the tests".
 name: CI
 
 on:
