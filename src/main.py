@@ -1,8 +1,8 @@
 """! @file main.py
 @brief Entry point of the quiz game.
 
-Builds the question bank from the course data. The quiz itself is added by the
-later lecture parts.
+Builds the question bank from the course data and starts the quiz. The quiz is
+completed by the later lecture parts.
 """
 
 import logging
@@ -10,6 +10,7 @@ import logging
 from constants import LOG_QUESTIONS_LOADED, QUESTION_KEY_ANSWER, QUESTION_KEY_TEXT
 from data import question_data
 from question_model import Question
+from quiz_brain import QuizBrain
 
 ## @brief Logger of this module, for diagnostics only (the quiz uses print and input).
 logger = logging.getLogger(__name__)
@@ -30,11 +31,15 @@ def build_question_bank(raw_questions: list[dict[str, str]]) -> list[Question]:
 
 
 def main() -> None:
-    """! @brief Builds the question bank from the course data.
+    """! @brief Builds the question bank and asks the player the first question.
+
+    A later lecture part replaces the single question with a loop over all of them.
     @return Nothing.
     """
     question_bank = build_question_bank(question_data)
     logger.info(LOG_QUESTIONS_LOADED, len(question_bank))
+    quiz = QuizBrain(question_bank)
+    quiz.next_question()
 
 
 if __name__ == "__main__":

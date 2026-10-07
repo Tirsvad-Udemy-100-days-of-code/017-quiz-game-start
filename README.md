@@ -64,7 +64,7 @@ From the repository root:
 python src/main.py
 ```
 
-The quiz is built in six gateways (see `docs/project-plan.md`). Until the last one is merged, `src/main.py` builds the question bank but shows nothing to the player yet, so running it prints nothing; each later gateway adds one lecture part, and this section gets an example session when the quiz is complete.
+The quiz is built in six gateways (see `docs/project-plan.md`). Until the last one is merged the quiz is unfinished: running `src/main.py` asks the first question, reads your answer and ends without checking it. Each later gateway adds one lecture part, and this section gets an example session when the quiz is complete.
 
 ## Run the tests
 
