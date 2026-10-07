@@ -3,6 +3,7 @@
 import importlib
 import logging
 import sys
+from collections.abc import Callable, Iterable
 from typing import NoReturn
 
 import pytest
@@ -10,7 +11,10 @@ import pytest
 from constants import (
     ANSWER_FALSE,
     ANSWER_TRUE,
+    FEEDBACK_SCORE,
     LOG_QUESTIONS_LOADED,
+    MESSAGE_FINAL_SCORE,
+    MESSAGE_QUIZ_COMPLETE,
     PROMPT_QUESTION,
     QUESTION_KEY_ANSWER,
     QUESTION_KEY_TEXT,
@@ -108,3 +112,76 @@ def test_importing_main_does_not_ask_for_input_or_print_when_imported(
     captured = capsys.readouterr()
     assert captured.out == ""
     assert captured.err == ""
+
+
+def right_answers() -> list[str]:
+    return [entry[QUESTION_KEY_ANSWER] for entry in question_data]
+
+
+def wrong_answers() -> list[str]:
+    return [
+        ANSWER_FALSE if entry[QUESTION_KEY_ANSWER] == ANSWER_TRUE else ANSWER_TRUE
+        for entry in question_data
+    ]
+
+
+def test_final_result_shows_a_full_score_when_all_twelve_answers_are_right(
+    script_input: Callable[[Iterable[str]], ScriptedInput],
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    script_input(right_answers())
+
+    main()
+
+    lines = capsys.readouterr().out.splitlines()
+    full_score = MESSAGE_FINAL_SCORE.format(
+        score=EXPECTED_QUESTION_COUNT, total=EXPECTED_QUESTION_COUNT
+    )
+    assert lines[-3:] == ["", MESSAGE_QUIZ_COMPLETE, full_score]
+    assert lines.count(MESSAGE_QUIZ_COMPLETE) == 1
+
+
+def test_final_result_shows_a_zero_score_when_all_twelve_answers_are_wrong(
+    script_input: Callable[[Iterable[str]], ScriptedInput],
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    script_input(wrong_answers())
+
+    main()
+
+    lines = capsys.readouterr().out.splitlines()
+    zero_score = MESSAGE_FINAL_SCORE.format(score=0, total=EXPECTED_QUESTION_COUNT)
+    assert lines[-2:] == [MESSAGE_QUIZ_COMPLETE, zero_score]
+
+
+def test_final_result_counts_the_right_answers_when_every_answer_is_true(
+    script_input: Callable[[Iterable[str]], ScriptedInput],
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    script_input([ANSWER_TRUE] * EXPECTED_QUESTION_COUNT)
+    true_answers = sum(
+        1 for entry in question_data if entry[QUESTION_KEY_ANSWER] == ANSWER_TRUE
+    )
+
+    main()
+
+    lines = capsys.readouterr().out.splitlines()
+    assert lines[-1] == MESSAGE_FINAL_SCORE.format(
+        score=true_answers, total=EXPECTED_QUESTION_COUNT
+    )
+
+
+def test_running_score_follows_every_answer_when_all_twelve_answers_are_right(
+    script_input: Callable[[Iterable[str]], ScriptedInput],
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    script_input(right_answers())
+    expected = [
+        FEEDBACK_SCORE.format(score=number, answered=number)
+        for number in range(1, EXPECTED_QUESTION_COUNT + 1)
+    ]
+
+    main()
+
+    lines = capsys.readouterr().out.splitlines()
+    assert [line for line in lines if line in expected] == expected

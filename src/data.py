@@ -1,3 +1,10 @@
+"""! @file data.py
+@brief The question data of the course.
+
+The twelve questions below are the course's own data, kept in the course's layout.
+"""
+
+## @brief The questions: one dictionary per question, with the keys text and answer.
 question_data = [
 {"text": "A slug's blood is green.", "answer": "True"},
 {"text": "The loudest animal is the African Elephant.", "answer": "False"},

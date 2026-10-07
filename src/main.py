@@ -1,13 +1,19 @@
 """! @file main.py
 @brief Entry point of the quiz game.
 
-Builds the question bank from the course data and starts the quiz. The quiz is
-completed by the later lecture parts.
+Builds the question bank from the course data and runs the quiz: it asks every
+question, checks each answer and shows the final score.
 """
 
 import logging
 
-from constants import LOG_QUESTIONS_LOADED, QUESTION_KEY_ANSWER, QUESTION_KEY_TEXT
+from constants import (
+    LOG_QUESTIONS_LOADED,
+    MESSAGE_FINAL_SCORE,
+    MESSAGE_QUIZ_COMPLETE,
+    QUESTION_KEY_ANSWER,
+    QUESTION_KEY_TEXT,
+)
 from data import question_data
 from question_model import Question
 from quiz_brain import QuizBrain
@@ -31,9 +37,7 @@ def build_question_bank(raw_questions: list[dict[str, str]]) -> list[Question]:
 
 
 def main() -> None:
-    """! @brief Builds the question bank and asks the player every question.
-
-    The answers are not checked yet; a later lecture part does that.
+    """! @brief Runs the quiz: asks every question, then shows the final score.
     @return Nothing.
     """
     question_bank = build_question_bank(question_data)
@@ -41,6 +45,8 @@ def main() -> None:
     quiz = QuizBrain(question_bank)
     while quiz.still_has_questions():
         quiz.next_question()
+    print(MESSAGE_QUIZ_COMPLETE)
+    print(MESSAGE_FINAL_SCORE.format(score=quiz.score, total=quiz.question_number))
 
 
 if __name__ == "__main__":

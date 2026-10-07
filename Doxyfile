@@ -24,8 +24,6 @@ OUTPUT_DIRECTORY       = docs/doxygen
 INPUT                  = src
 FILE_PATTERNS          = *.py
 RECURSIVE              = NO
-# src/data.py is the course's data file and is kept byte-identical to the starter file.
-EXCLUDE                = src/data.py
 
 # --- Python ---
 OPTIMIZE_OUTPUT_JAVA   = YES
