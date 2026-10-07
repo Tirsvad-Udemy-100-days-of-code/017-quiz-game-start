@@ -18,3 +18,6 @@ ANSWER_TRUE: Final = "True"
 
 ## @brief The answer word of a statement that is false, as written in `question_data`.
 ANSWER_FALSE: Final = "False"
+
+## @brief Log message for the finished question bank; `%d` is the number of questions.
+LOG_QUESTIONS_LOADED: Final = "Loaded %d questions."
