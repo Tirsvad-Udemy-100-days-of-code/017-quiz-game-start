@@ -1,0 +1,50 @@
+# Doxygen configuration for the Quiz Game source documentation.
+#
+# Build:  doxygen Doxyfile
+# Open:   docs/doxygen/html/index.html
+#
+# Only the settings that differ from Doxygen's defaults are listed; run
+# `doxygen -g Doxyfile.full` to see every option.
+#
+# Comment style used in src/ (the zero-warning build below enforces it):
+#   - every module (with @file), class, method and function has a docstring that
+#     opens with `"""! @brief ...`; the exclamation mark is what makes Doxygen
+#     read the @param and @return lines that follow;
+#   - each parameter has an @param line and each result an @return line;
+#   - a function annotated `-> None` writes `@return Nothing.` (Doxygen warns
+#     about an undocumented return type otherwise); constructors need no @return;
+#   - a module-level constant or an attribute has a `## @brief ...` comment line
+#     directly above it.
+
+PROJECT_NAME           = "Quiz Game"
+PROJECT_BRIEF          = "Console True/False quiz from Udemy's 100 Days of Code, day 17"
+OUTPUT_DIRECTORY       = docs/doxygen
+
+# --- Input: the Python sources only ---
+INPUT                  = src
+FILE_PATTERNS          = *.py
+RECURSIVE              = NO
+# src/data.py is the course's data file and is kept byte-identical to the starter file.
+EXCLUDE                = src/data.py
+
+# --- Python ---
+OPTIMIZE_OUTPUT_JAVA   = YES
+EXTRACT_ALL            = NO
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = NO
+JAVADOC_AUTOBRIEF      = NO
+
+# --- Output ---
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+HTML_OUTPUT            = html
+SOURCE_BROWSER         = YES
+QUIET                  = YES
+
+# --- Warnings: an undocumented module, class, function or parameter fails the build ---
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_DOC_ERROR      = YES
+WARN_IF_INCOMPLETE_DOC = YES
+WARN_NO_PARAMDOC       = YES
+WARN_AS_ERROR          = FAIL_ON_WARNINGS
