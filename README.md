@@ -64,7 +64,38 @@ From the repository root:
 python src/main.py
 ```
 
-The quiz is built in six gateways (see `docs/project-plan.md`). Until the last one is merged the quiz is unfinished: running `src/main.py` asks all twelve questions, reads each answer and ends without checking them. Each later gateway adds one lecture part, and this section gets an example session when the quiz is complete.
+The quiz asks twelve True/False questions, one after the other. Type `True` or `False` (in any letter case) and press Enter. After each answer you see whether it was right, the correct answer and your score so far; anything other than the right word counts as wrong. At the end you see your final score.
+
+An example session (the questions between Q.3 and Q.12 are left out):
+
+```text
+Q.1: A slug's blood is green. (True/False)?: true
+You got it right!
+The correct answer was: True.
+Your current score is: 1/1
+
+Q.2: The loudest animal is the African Elephant. (True/False)?: True
+That's wrong.
+The correct answer was: False.
+Your current score is: 1/2
+
+Q.3: Approximately one quarter of human bones are in the feet. (True/False)?: false
+That's wrong.
+The correct answer was: True.
+Your current score is: 1/3
+
+[...]
+
+Q.12: A few ounces of chocolate can to kill a small dog. (True/False)?: true
+You got it right!
+The correct answer was: True.
+Your current score is: 9/12
+
+You've completed the quiz
+Your final score was: 9/12
+```
+
+The program was built in six gateways, one per lecture part after the project set-up; the plan is in `docs/project-plan.md`.
 
 ## Run the tests
 
@@ -94,12 +125,14 @@ The source comments are written for [Doxygen][doxygen]; the style is described a
 doxygen Doxyfile
 ```
 
-Open `docs/doxygen/html/index.html` in a browser. The folder `docs/doxygen/` is generated and ignored by Git. The build fails on any undocumented module, class, function or parameter, so it also checks that the comments are complete. `src/data.py` is the course's data file and is left out.
+Open `docs/doxygen/html/index.html` in a browser. The folder `docs/doxygen/` is generated and ignored by Git. The build fails on any undocumented module, class, function or parameter, so it also checks that the comments are complete.
 
 ## Project layout
 
 ```text
 .
+├── .agents/                   Skills for AI agents (Codex CLI and similar tools)
+├── .claude/                   The same skills for Claude Code
 ├── .github/workflows/ci.yml   Continuous integration
 ├── docs/                      Project documents: business case, stakeholders, plan, milestones, reviews
 ├── framework/                 SQA and QC framework (Git submodule, not needed to run the program)
@@ -107,10 +140,18 @@ Open `docs/doxygen/html/index.html` in a browser. The folder `docs/doxygen/` is 
 ├── src/
 │   ├── constants.py           Constants of the program
 │   ├── data.py                The twelve questions (from the course)
-│   ├── main.py                Entry point
+│   ├── main.py                Entry point: builds the question bank and runs the quiz
 │   ├── question_model.py      The Question class
 │   └── quiz_brain.py          The QuizBrain class
-├── tests/                     pytest tests
+├── tests/
+│   ├── conftest.py            pytest fixtures
+│   ├── fakes.py               Test double for the built-in input
+│   ├── test_data.py           Tests of the course data
+│   ├── test_main.py           Tests of the question bank and the entry point
+│   ├── test_question_model.py Tests of the Question class
+│   └── test_quiz_brain.py     Tests of the QuizBrain class
+├── .gitignore
+├── .gitmodules                Location of the framework submodule
 ├── AGENTS.md                  Rules for AI agents working in this repository
 ├── Doxyfile                   Doxygen configuration
 ├── LICENSE
