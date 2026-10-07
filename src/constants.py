@@ -21,3 +21,6 @@ ANSWER_FALSE: Final = "False"
 
 ## @brief Log message for the finished question bank; `%d` is the number of questions.
 LOG_QUESTIONS_LOADED: Final = "Loaded %d questions."
+
+## @brief Prompt for one question; `number` is its number and `text` its statement.
+PROMPT_QUESTION: Final = "Q.{number}: {text} (True/False)?: "
