@@ -10,7 +10,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-07 | Proposed | Jens Tirsvad Nielsen | S01 | Added the row for the Python code of MIL-005 and RC-014 | [831c2be] |
-| 2026-10-07 | Proposed | Jens Tirsvad Nielsen | S01 | Added the row for the Python code of MIL-006 and RC-015 | pending |
+| 2026-10-07 | Proposed | Jens Tirsvad Nielsen | S01 | Added the row for the Python code of MIL-006 and RC-015 | [a1b8c74] |
 
 ---
 
@@ -73,3 +73,4 @@ updated whenever an artifact instance is created or reviewed.
 [RC-014]: ./reviews/rc-014-python-mil-005.md
 [RC-015]: ./reviews/rc-015-python-mil-006.md
 [831c2be]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/831c2be1f79814229e65f480cfef0b7fed69ba02
+[a1b8c74]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/a1b8c7459071a25955e1b4eb27329604bd22968f
