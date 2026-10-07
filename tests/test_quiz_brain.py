@@ -106,3 +106,43 @@ def test_question_list_is_unchanged_when_questions_are_asked() -> None:
     quiz.next_question()
 
     assert quiz.question_list == before
+
+
+def test_quiz_has_no_questions_left_when_the_question_list_is_empty() -> None:
+    quiz = QuizBrain([])
+
+    assert quiz.still_has_questions() is False
+
+
+@pytest.mark.usefixtures("scripted_input")
+@pytest.mark.parametrize(
+    ("questions_asked", "expected"),
+    [
+        (0, True),  # the first question is still to be asked
+        (1, True),
+        (2, True),  # the last question is still to be asked
+        (3, False),  # the last question has been asked: the quiz is over
+    ],
+)
+def test_still_has_questions_follows_the_questions_asked_when_there_are_three(
+    questions_asked: int, expected: bool
+) -> None:
+    quiz = QuizBrain(make_questions())
+
+    for _ in range(questions_asked):
+        quiz.next_question()
+
+    assert quiz.still_has_questions() is expected
+
+
+def test_a_loop_on_still_has_questions_asks_each_question_once(
+    scripted_input: ScriptedInput,
+) -> None:
+    questions = make_questions()
+    quiz = QuizBrain(questions)
+
+    while quiz.still_has_questions():
+        quiz.next_question()
+
+    assert len(scripted_input.prompts) == len(questions)
+    assert quiz.question_number == len(questions)
