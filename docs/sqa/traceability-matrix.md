@@ -9,8 +9,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-07 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | [ab361ed] |
 | 2026-10-07 | Proposed | Jens Tirsvad Nielsen | S01 | Added the row for the Python code of MIL-001 and RC-010 | [1c2c852] |
+| 2026-10-07 | Proposed | Jens Tirsvad Nielsen | S01 | Added the row for the Python code of MIL-002 and RC-011<br>Coverage notes: source code now has rows | pending |
 
 ---
 
@@ -34,12 +34,13 @@ updated whenever an artifact instance is created or reviewed.
 | [MIL-005] | Milestone / Gateway | en | it | [BC-001], [MIL-004] | [MIL-006] | [RC-008] |
 | [MIL-006] | Milestone / Gateway | en | it | [BC-001], [MIL-005] | - | [RC-009] |
 | Python code of MIL-001 (`src/constants.py`, `tests/test_data.py`) | Python Source Code (PY) | - | - | [MIL-001] | - | [RC-010] |
+| Python code of MIL-002 (`src/question_model.py`, `tests/test_question_model.py`) | Python Source Code (PY) | - | - | [MIL-002] | - | [RC-011] |
 
 ## Coverage Notes
 
-- In Upstream, `-` means foundational (the Business Case has no prerequisite artifact). In Downstream, `-` means nothing is built on the instance yet; the milestones' tasks are not yet code, so G1 to G6 are the first downstream work. In Last Reviewed, `-` would mean no review record exists; every row above has one.
-- Types with no instance in this project yet: KPI, RA, BMC, BPMN, UCD, US, UC, DM, SSD, OC, SD, DCD, ERD, ADR, DICT, GOV, and the source-code type PY. Use cases and user stories are not planned (Project Plan, open issues); `PY` starts with MIL-001.
-- Review records RC-001 to RC-010 and this matrix have no QC checklist and are not reviewed.
+- In Upstream, `-` means foundational (the Business Case has no prerequisite artifact). In Downstream, `-` means nothing is built on the instance yet; the code rows get a downstream link when a later gateway builds on them. In Last Reviewed, `-` would mean no review record exists; every row above has one.
+- Types with no instance in this project yet: KPI, RA, BMC, BPMN, UCD, US, UC, DM, SSD, OC, SD, DCD, ERD, ADR, DICT, GOV. Use cases and user stories are not planned (Project Plan, open issues). The source-code type PY has one row per gateway, added when the gateway's code is reviewed (MIL-001 and MIL-002 so far).
+- Review records RC-001 to RC-011 and this matrix have no QC checklist and are not reviewed.
 
 ---
 
@@ -62,5 +63,5 @@ updated whenever an artifact instance is created or reviewed.
 [RC-008]: ./reviews/rc-008-mil-005.md
 [RC-009]: ./reviews/rc-009-mil-006.md
 [RC-010]: ./reviews/rc-010-python-mil-001.md
-[ab361ed]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/ab361edf622585f77249d7782a9e2619f7d85cfc
+[RC-011]: ./reviews/rc-011-python-mil-002.md
 [1c2c852]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/1c2c852b86fb8c330f0cd918eccefd2240b87700
