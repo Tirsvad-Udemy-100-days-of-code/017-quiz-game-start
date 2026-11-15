@@ -61,3 +61,6 @@ desktop.ini
 # --- Jupyter and misc ---
 .ipynb_checkpoints/
 *.log
+
+# --- AI prompt logs (kept local; this repository is public) ---
+/docs/ai-prompts/

@@ -4,9 +4,16 @@ version = "0.1.0"
 description = "Console True/False quiz from Udemy's 100 Days of Code, day 17 (the quiz project)."
 readme = "README.md"
 requires-python = ">=3.13"
-license = { file = "LICENSE" }
+license = "AGPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [{ name = "Jens Tirsvad Nielsen" }]
 # The program uses only the standard library: no runtime dependencies.
 dependencies = []
+
+[project.urls]
+Repository = "https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start"
+Documentation = "https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/wiki"
+"Issue tracker" = "https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/issues"
 
 # Development-only tools. Install them in the local .venv with
 # `python -m pip install --group dev` (needs pip 25.1 or newer, PEP 735).

@@ -1,15 +1,61 @@
 # Quiz Game
 
-A console True/False quiz in plain Python: it asks twelve questions, checks each answer and shows a score. It is the day 17 quiz project of Udemy's "100 Days of Code: The Complete Python Pro Bootcamp", built step by step with the assignment's own names (`Question`, `QuizBrain`, `next_question`, `still_has_questions`, `check_answer`). The program has no runtime dependencies, so other course participants can read, run and compare it.
+A console True/False quiz in plain Python: it asks twelve questions, checks each answer and shows a score.
 
-## Requirements
+## 📚 Table of Contents
+
+- [Overview](#-overview)
+- [Requirements](#-requirements)
+- [Setup](#-setup)
+- [Run](#-run)
+- [Tests](#-tests)
+- [License](#-license)
+- [Links](#-links)
+- [Appendix: Project documents](#-appendix-project-documents)
+
+## 🧭 Overview
+
+It is the day 17 quiz project of Udemy's "100 Days of Code: The Complete Python Pro Bootcamp", built step by step with the assignment's own names (`Question`, `QuizBrain`, `next_question`, `still_has_questions`, `check_answer`). The program has no runtime dependencies, so other course participants can read, run and compare it.
+
+### Project layout
+
+```text
+.
+├── .gitea/workflows/ci.yml    Continuous integration (Gitea Actions)
+├── docs/                      Project documents: business case, stakeholders, plan, milestones, reviews
+├── framework/                 SQA and QC framework (Git submodule, not needed to run the program)
+├── quiz-game-start/           The course's starter files, unchanged
+├── src/
+│   ├── constants.py           Constants of the program
+│   ├── data.py                The twelve questions (from the course)
+│   ├── main.py                Entry point: builds the question bank and runs the quiz
+│   ├── question_model.py      The Question class
+│   └── quiz_brain.py          The QuizBrain class
+├── tests/
+│   ├── conftest.py            pytest fixtures
+│   ├── fakes.py               Test double for the built-in input
+│   ├── test_data.py           Tests of the course data
+│   ├── test_main.py           Tests of the question bank and the entry point
+│   ├── test_question_model.py Tests of the Question class
+│   └── test_quiz_brain.py     Tests of the QuizBrain class
+├── .editorconfig               Editor settings of the framework baseline
+├── .env.example               Placeholders for the tokens of the framework scripts
+├── .gitignore
+├── .gitmodules                Location of the framework submodule
+├── Doxyfile                   Doxygen configuration
+├── LICENSE
+├── pyproject.toml             Project configuration and tool settings
+└── README.md
+```
+
+## 📋 Requirements
 
 - Python 3.13 or newer. The program itself uses only the standard library.
 - `pytest`, `ruff` and `mypy` to run the tests and checks. They are development-only tools, installed in a local `.venv` (see Set up).
 - [Doxygen][doxygen] only if you want to build the source documentation.
 - Git, to clone the repository.
 
-## Set up
+## 🛠️ Setup
 
 The quiz needs no installation: with Python 3.13 you can run `python src/main.py` straight after cloning. The steps below create a local virtual environment (`.venv`, ignored by Git) and install the development tools used by the tests and checks.
 
@@ -56,7 +102,7 @@ python -m pip install --group dev
 
 On every platform, `python -m pip install --upgrade pip` comes first because `--group` needs pip 25.1 or newer. Leave the environment with `deactivate`; to use it again, run the activation line of your platform.
 
-## Run
+## ▶️ Run
 
 From the repository root:
 
@@ -97,7 +143,17 @@ Your final score was: 9/12
 
 The program was built in six gateways, one per lecture part after the project set-up; the plan is in `docs/project-plan.md`.
 
-## Run the tests
+### Build the source documentation
+
+The source comments are written for [Doxygen][doxygen]; the style is described at the top of the `Doxyfile`. Install Doxygen, then from the repository root:
+
+```bash
+doxygen Doxyfile
+```
+
+Open `docs/doxygen/html/index.html` in a browser. The folder `docs/doxygen/` is generated and ignored by Git. The build fails on any undocumented module, class, function or parameter, so it also checks that the comments are complete.
+
+## 🧪 Tests
 
 With the `.venv` active, from the repository root:
 
@@ -113,50 +169,11 @@ ruff format --check src tests
 mypy --strict src tests
 ```
 
-## Continuous integration
+### Continuous integration
 
 The workflow `.gitea/workflows/ci.yml` runs on every push and pull request. It sets up Python 3.13, upgrades pip, installs the development tools with `python -m pip install --group dev`, and runs `ruff check`, `ruff format --check`, `mypy --strict` and `pytest`. It is run by Gitea Actions, so the Gitea repository needs an Actions runner. The GitHub copy of the repository does not run it; to run the same checks there, copy the file to `.github/workflows/ci.yml` (GitHub accepts workflow changes only from a token with the `workflow` scope).
 
-## Build the source documentation
-
-The source comments are written for [Doxygen][doxygen]; the style is described at the top of the `Doxyfile`. Install Doxygen, then from the repository root:
-
-```bash
-doxygen Doxyfile
-```
-
-Open `docs/doxygen/html/index.html` in a browser. The folder `docs/doxygen/` is generated and ignored by Git. The build fails on any undocumented module, class, function or parameter, so it also checks that the comments are complete.
-
-## Project layout
-
-```text
-.
-├── .gitea/workflows/ci.yml    Continuous integration (Gitea Actions)
-├── docs/                      Project documents: business case, stakeholders, plan, milestones, reviews
-├── framework/                 SQA and QC framework (Git submodule, not needed to run the program)
-├── quiz-game-start/           The course's starter files, unchanged
-├── src/
-│   ├── constants.py           Constants of the program
-│   ├── data.py                The twelve questions (from the course)
-│   ├── main.py                Entry point: builds the question bank and runs the quiz
-│   ├── question_model.py      The Question class
-│   └── quiz_brain.py          The QuizBrain class
-├── tests/
-│   ├── conftest.py            pytest fixtures
-│   ├── fakes.py               Test double for the built-in input
-│   ├── test_data.py           Tests of the course data
-│   ├── test_main.py           Tests of the question bank and the entry point
-│   ├── test_question_model.py Tests of the Question class
-│   └── test_quiz_brain.py     Tests of the QuizBrain class
-├── .gitignore
-├── .gitmodules                Location of the framework submodule
-├── Doxyfile                   Doxygen configuration
-├── LICENSE
-├── pyproject.toml             Project configuration and tool settings
-└── README.md
-```
-
-## License
+## 📄 License
 
 GNU Affero General Public License version 3. See [LICENSE][license].
 
@@ -164,3 +181,35 @@ GNU Affero General Public License version 3. See [LICENSE][license].
 
 [doxygen]: https://www.doxygen.nl/
 [license]: ./LICENSE
+
+## 🔗 Links
+
+- [Repository][repository]
+- [Documentation][documentation]
+- [Issue tracker][issues]
+
+## 📎 Appendix: Project documents
+
+The documents a newcomer needs, in reading order.
+
+| Document | What it tells you |
+| --- | --- |
+| [Business Case][BC-001] | Why the project exists, its scope and success criteria |
+| [Stakeholder Analysis][SA-001] | Who is involved; the stakeholder IDs used for owners and reviewers |
+| [Project Plan][PP-001] | The gateways and their schedule |
+| [Milestones][milestones] | One document per gateway: Go/No-Go criteria and tasks |
+| [Artifact registry][registry] | Where each artifact type lives, the next version, the PO language and domain |
+| [Traceability matrix][TM-001] | How the artifacts link and when each was last reviewed |
+
+---
+
+[repository]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start
+[documentation]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/wiki
+[issues]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/issues
+[license]: ./LICENSE
+[BC-001]: ./docs/business-case.md
+[SA-001]: ./docs/stakeholder-analysis.md
+[PP-001]: ./docs/project-plan.md
+[milestones]: ./docs/milestones/
+[registry]: ./docs/artifact-registry.md
+[TM-001]: ./docs/sqa/traceability-matrix.md
