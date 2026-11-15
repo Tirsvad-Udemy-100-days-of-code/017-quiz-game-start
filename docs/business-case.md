@@ -12,7 +12,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-07 | Deprecated | Jens Tirsvad Nielsen | S01 | Initial version | [ab361ed] |
-| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added objective O7, success criterion 10, a scope item, a constraint exception, an assumption and a risk for the baseline phase MIL-007; set the domain to education; spelled out abbreviations; reviewed in autonomous mode, not independent | pending |
+| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added objective O7, success criterion 10, a scope item, a constraint exception, an assumption and a risk for the baseline phase MIL-007; set the domain to education; spelled out abbreviations; reviewed in autonomous mode, not independent | [cd6c05d] |
 
 ---
 
@@ -163,3 +163,4 @@ Proceed — the scope is small and fully specified by the lectures, the cost is 
 [ab361ed]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/ab361edf622585f77249d7782a9e2619f7d85cfc
 [PP-001]: ./project-plan.md
 [MIL-007]: ./milestones/mil-007-framework-baseline.md
+[cd6c05d]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/cd6c05d5cbff83ca2e39e22ee73f4b80d20fc103

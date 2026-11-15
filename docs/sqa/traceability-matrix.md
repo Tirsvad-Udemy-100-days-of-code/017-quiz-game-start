@@ -11,7 +11,7 @@
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-07 | Deprecated | Jens Tirsvad Nielsen | S01 | Added the row for the Python code of MIL-005 and RC-014 | [831c2be] |
 | 2026-10-07 | Deprecated | Jens Tirsvad Nielsen | S01 | Added the row for the Python code of MIL-006 and RC-015 | [a1b8c74] |
-| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Accepted; added MIL-007, the wiki, the concern coverage and the new review records RC-016 to RC-025; set the domain to education; reviewed in autonomous mode, not independent | pending |
+| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Accepted; added MIL-007, the wiki, the concern coverage and the new review records RC-016 to RC-025; set the domain to education; reviewed in autonomous mode, not independent | [cd6c05d] |
 
 ---
 
@@ -108,3 +108,4 @@ updated whenever an artifact instance is created or reviewed.
 [RC-024]: ./reviews/rc-024-milestone-006.md
 [RC-025]: ./reviews/rc-025-milestone-007.md
 [RC-026]: ./reviews/rc-026-wiki.md
+[cd6c05d]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/cd6c05d5cbff83ca2e39e22ee73f4b80d20fc103

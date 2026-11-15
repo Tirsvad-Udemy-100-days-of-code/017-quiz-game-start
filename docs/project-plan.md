@@ -12,7 +12,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-07 | Deprecated | Jens Tirsvad Nielsen | S01 | Initial version | [ab361ed] |
-| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added the baseline gateway G7 (MIL-007), its scope coverage, dependency, risk and Gantt entries; updated the open issues about the diagram check and the review records; set the domain to education; reviewed in autonomous mode, not independent | pending |
+| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added the baseline gateway G7 (MIL-007), its scope coverage, dependency, risk and Gantt entries; updated the open issues about the diagram check and the review records; set the domain to education; reviewed in autonomous mode, not independent | [cd6c05d] |
 
 ---
 
@@ -132,3 +132,4 @@ A No-Go on a gateway stops the chain: the later gateways start from the code the
 [ab361ed]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/ab361edf622585f77249d7782a9e2619f7d85cfc
 [MIL-007]: ./milestones/mil-007-framework-baseline.md
 [Milestone 522]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/milestone/522
+[cd6c05d]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/cd6c05d5cbff83ca2e39e22ee73f4b80d20fc103
