@@ -4,14 +4,15 @@
 | Key | Value |
 | --- | --- |
 | ID | BC-001 |
-| CrossReference | [SA-001] |
+| CrossReference | [SA-001], [PP-001], [MIL-007] |
 | Language | en |
-| Domain | it |
+| Domain | education |
 
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-07 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version | [ab361ed] |
+| 2026-10-07 | Deprecated | Jens Tirsvad Nielsen | S01 | Initial version | [ab361ed] |
+| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added objective O7, success criterion 10, a scope item, a constraint exception, an assumption and a risk for the baseline phase MIL-007; set the domain to education; spelled out abbreviations; reviewed in autonomous mode, not independent | [cd6c05d] |
 
 ---
 
@@ -44,6 +45,7 @@ A small, well-structured repository lets S01 practise professional project habit
 | O4 | Make the repository usable by others: a README that follows the Product Owner's template, setup instructions for Windows PowerShell, Linux Debian and MacOS, a continuous-integration workflow, a repository description and topics. |
 | O5 | Keep every gateway traceable: one gateway, one branch, one pull request, and every task an issue that the pull request closes. |
 | O6 | Keep the program free of runtime dependencies and keep the source passing the formatter, linter, type checker and tests. |
+| O7 | Bring the finished project to the common baseline of the framework: the adopted framework release, a wiki in English, Danish and Malay, the README in the framework template, complete licence metadata, a traceability matrix and review records ([MIL-007]). |
 
 ## Scope
 
@@ -55,6 +57,7 @@ A small, well-structured repository lets S01 practise professional project habit
 - `pyproject.toml`, `.gitignore`, `Doxyfile`, Doxygen-style comments in `src/`, a README, a continuous-integration workflow.
 - Instructions to create and use a local `.venv` and to run `python -m pip install --upgrade pip`.
 - Setting the repository description and topics on the git host.
+- The baseline phase [MIL-007]: framework release, wiki in English, Danish and Malay, README in the framework template, licence metadata, traceability matrix and review records. It changes no behaviour of the program.
 
 ### Out of Scope
 
@@ -63,6 +66,7 @@ A small, well-structured repository lets S01 practise professional project habit
 - Re-asking when the player types something other than true or false; such an answer counts as wrong, as in the lecture.
 - Publishing the project as an installable package.
 - Changing the course data in `data.py` (including its wording).
+- Any change to `src/` or `tests/` in the baseline phase.
 - Use cases, user stories and a domain model: the behaviour is fixed by the lecture summaries (see the Project Plan, open issues).
 
 ## Expected Benefits
@@ -96,6 +100,7 @@ The project supports S01's learning path through the 100 Days of Code course. It
 | 7 | README is complete | All 11 sections of the Product Owner's template present, in order, with setup commands for three platforms | Heading comparison |
 | 8 | Gateways are traceable | 6 pull requests; every task issue closed by a `Closes #N` line | Issue list and pull request descriptions |
 | 9 | Repository is described | Non-empty description and at least 5 topics on the git host | A `GET` request to the git host's application programming interface (API) |
+| 10 | The baseline phase is done ([MIL-007]) | Wiki pages in 3 languages, `framework/scripts/check-readme.sh` exits with code 0, 100 % of the continuous integration (CI) checks of the pull request pass | Files in `docs/wiki/`, the script exit code and the pull request status on the git host |
 
 ## Risks
 
@@ -108,6 +113,7 @@ The project supports S01's learning path through the 100 Days of Code course. It
 | The git host has no continuous-integration (CI) runner | The CI section cannot be demonstrated on the main host | The workflow is stored under `.github/workflows/`, which GitHub and Gitea both read; the GitHub mirror can run it |
 | Doxygen parses Python docstrings differently from what the comments assume | Warnings, or empty documentation | Gateway 1 fixes one comment style and builds the documentation; every later gateway repeats the build |
 | The quiz's console output conflicts with the Python rule "use `logging`, not `print`" | A false finding in the code review | `print` and `input` are the program's user interface, not diagnostics; the review records the criterion as not applicable for them |
+| The author is also the reviewer of the baseline documents | Medium: a defect is missed because the review is not independent | Every review record says `Mode: autonomous, not independent`, and the end-of-run summary lists it for challenge |
 
 ## Assumptions
 
@@ -116,6 +122,7 @@ The project supports S01's learning path through the 100 Days of Code course. It
 - There is no external deadline; the target of 2026-10-21 for the last gateway is set by S01.
 - One person (S01) is Product Owner, developer and reviewer, as S01 defined the role. The documents were drafted by an AI assistant at S01's request, and S01 reviews them. No other stakeholder can review, and the project has no governance document, so the framework rule that a reviewer must not be the author is met only in that sense (Project Plan, open issues).
 - The main git host is the Gitea instance behind `origin`; the GitHub remote is a mirror.
+- The baseline phase [MIL-007] is finished within one week, by 2026-11-22.
 
 ## Constraints
 
@@ -124,7 +131,7 @@ The project supports S01's learning path through the 100 Days of Code course. It
 - Doxygen comments in the source and a `Doxyfile`.
 - No runtime dependencies unless needed; development tools are allowed as development-only dependencies.
 - The licence is the GNU Affero General Public License (AGPL) version 3 already in the repository.
-- Nothing is committed or pushed until S01 asks; changes go through branches and pull requests, and a reviewer, not the author, merges.
+- Nothing is committed or pushed until S01 asks; changes go through branches and pull requests, and a reviewer, not the author, merges. The exception is the baseline phase: there S01 has authorised the assistant to commit, push, open the pull request and merge it in autonomous mode.
 - Nothing is written under `src/` or `tests/` until the gateway that contains the task is accepted with a `Go` review (plan-first gate).
 
 ## Cost–Benefit Assessment
@@ -154,3 +161,6 @@ Proceed — the scope is small and fully specified by the lectures, the cost is 
 
 [SA-001]: ./stakeholder-analysis.md
 [ab361ed]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/ab361edf622585f77249d7782a9e2619f7d85cfc
+[PP-001]: ./project-plan.md
+[MIL-007]: ./milestones/mil-007-framework-baseline.md
+[cd6c05d]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/cd6c05d5cbff83ca2e39e22ee73f4b80d20fc103

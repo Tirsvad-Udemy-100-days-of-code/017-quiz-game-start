@@ -4,20 +4,21 @@
 | Key | Value |
 | --- | --- |
 | ID | PP-001 |
-| CrossReference | [BC-001], [SA-001], [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005], [MIL-006] |
+| CrossReference | [BC-001], [SA-001], [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005], [MIL-006], [MIL-007] |
 | Language | en |
-| Domain | it |
+| Domain | education |
 
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-07 | Accepted | Jens Tirsvad Nielsen | S01 | Initial version | [ab361ed] |
+| 2026-10-07 | Deprecated | Jens Tirsvad Nielsen | S01 | Initial version | [ab361ed] |
+| 2026-11-15 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Added the baseline gateway G7 (MIL-007), its scope coverage, dependency, risk and Gantt entries; updated the open issues about the diagram check and the review records; set the domain to education; reviewed in autonomous mode, not independent | [cd6c05d] |
 
 ---
 
 ## Purpose
 
-The plan schedules the six gateways that take the day 17 quiz assignment from the course's starter files to a tested, documented and shareable repository: one foundation gateway and one gateway for each of the five lecture parts. It schedules them against the Business Case's self-set target of finishing by 2026-10-21 ([BC-001], Assumptions). Each gateway is delivered on its own branch and pull request, so the plan is also the list of steps S01 reviews.
+The plan schedules the six gateways that take the day 17 quiz assignment from the course's starter files to a tested, documented and shareable repository: one foundation gateway and one gateway for each of the five lecture parts. It schedules them against the Business Case's self-set target of finishing by 2026-10-21 ([BC-001], Assumptions). Each gateway is delivered on its own branch and pull request, so the plan is also the list of steps S01 reviews. A seventh gateway, [MIL-007], was added on 2026-11-15 to bring the finished project to the baseline of the framework.
 
 ## Planning Assumptions
 
@@ -27,6 +28,8 @@ The plan schedules the six gateways that take the day 17 quiz assignment from th
 - A gateway's branch is named after its document (`mil-001-project-foundation`, `mil-002-question-class`, and so on); one pull request per gateway; its description closes the gateway's issues with one `Closes #N` line each.
 - Work under `src/` and `tests/` starts for a gateway only when its milestone document is `Accepted` with a `Go` review record (plan-first gate). Reviews of the planning documents come first.
 - Nothing is committed or pushed until S01 asks.
+- The baseline gateway G7 ([MIL-007]) starts 2026-11-15 and ends by 2026-11-22, one week (source: [BC-001], Assumptions). The end date of the plan moves from 2026-10-21 to 2026-11-22 because of it; the reason is the agreed minimum quality baseline of the framework.
+- For G7 S01 has authorised the assistant to commit, push, open the pull request and merge it, and the review is done by an AI stand-in for S01 (source: [BC-001], Constraints; [SA-001], Conflicting Interests).
 
 ## Gateway Schedule
 
@@ -38,6 +41,7 @@ The plan schedules the six gateways that take the day 17 quiz assignment from th
 | G4 Next question | [MIL-004] | 2026-10-15 to 2026-10-16 | 2026-10-16 | S01 | — | `QuizBrain` with `question_number`, `question_list` and `next_question` | [Milestone 65] |
 | G5 Quiz loop | [MIL-005] | 2026-10-17 to 2026-10-18 | 2026-10-18 | S01 | — | `still_has_questions` and the `while` loop that asks every question | [Milestone 66] |
 | G6 Answers and score | [MIL-006] | 2026-10-19 to 2026-10-21 | 2026-10-21 | S01 | — | `check_answer`, the running score, the final score, final README check | [Milestone 67] |
+| G7 Framework baseline | [MIL-007] | 2026-11-15 to 2026-11-22 | 2026-11-22 | S01 | — | The framework release, the wiki in three languages, the README in the framework template, the licence metadata, the traceability matrix and the review records | [Milestone 522] |
 
 ```plantuml
 @startgantt
@@ -54,6 +58,8 @@ Project starts 2026-10-07
 [G5 Go/No-Go] happens 2026-10-18
 [G6 Answers and score] starts 2026-10-19 and ends 2026-10-21
 [G6 Go/No-Go] happens 2026-10-21
+[G7 Framework baseline] starts 2026-11-15 and ends 2026-11-22
+[G7 Go/No-Go] happens 2026-11-22
 @endgantt
 ```
 
@@ -69,12 +75,13 @@ Project starts 2026-10-07
 | `QuizBrain` class and `next_question` | G4 |
 | `still_has_questions` and the question loop in `main.py` | G5 |
 | `check_answer`, the score and the final result | G6 |
+| The baseline phase: framework release, wiki, README template, licence metadata, traceability matrix, review records | G7 |
 | Tests under `tests/` | G1 (starter data test), then each gateway tests its own code |
 
 ## Dependencies
 
 ```
-G1 Project foundation → G2 Question class → G3 Question bank → G4 Next question → G5 Quiz loop → G6 Answers and score
+G1 Project foundation → G2 Question class → G3 Question bank → G4 Next question → G5 Quiz loop → G6 Answers and score → G7 Framework baseline
 ```
 
 A No-Go on a gateway stops the chain: the later gateways start from the code the earlier one merged, so each later decision date moves by the rework time of the gateway before it. The 2026-10-21 target then slips; it is not defended by dropping a review.
@@ -87,6 +94,7 @@ A No-Go on a gateway stops the chain: the later gateways start from the code the
 | Each gateway is small, so review effort dominates | Calendar time is spent on review records rather than code | One `QC-MIL-001` review per milestone document, one `QC-PY-001` review per pull request; both record short, specific evidence |
 | The Doxygen and CI set-up in G1 grows larger than planned | G1 overruns and delays G2 to G6 | G1 has a fixed task list; extras go to a new gateway |
 | The target repository for the description and topics is unclear (see Open Issues) | G1 task 9 is blocked | Confirm the repository before the task starts |
+| A continuous integration (CI) check fails on the pull request of G7 ([MIL-007]) | The merge is delayed past 2026-11-22 | The failure is fixed on the same branch and the checks run again; after three failed rounds on one cause the work stops and S01 decides |
 
 ## Open Issues
 
@@ -100,8 +108,10 @@ A No-Go on a gateway stops the chain: the later gateways start from the code the
 - **Console output:** `print` and `input` are the program's user interface; `QC-PY-001` criterion 9 (logging instead of `print`) is recorded as not applicable to them.
 - **Classification of S02 and S03:** proposed by the analyst in [SA-001]; S01 to confirm.
 - **Reviewer independence:** the framework requires that a reviewer is not the author. The documents were drafted by an AI assistant and reviewed by S01, the only stakeholder who can review; the project has no governance document (`GOV`), so the rule cannot be checked further. S01 to decide whether a `GOV` document is needed.
-- **Review records:** `RC-001` to `RC-009` and the traceability matrix have no QC checklist, so no review gate applies to them; they stay `Proposed`.
-- **Diagram check:** the Gantt chart above has not been rendered; no PlantUML server was set.
+- **Review records:** `RC-001` to `RC-015` and the traceability matrix have no QC checklist, so no review gate applies to them; they stay `Proposed`.
+- **Source code in the baseline phase:** the existing source and tests are not reviewed again in G7; `RC-010` to `RC-015` stay the reviews of the source code of G1 to G6.
+- **Published wiki:** the wiki is checked on the git host after the merge, because the host copies it only then.
+- **Diagram check:** the Gantt chart above is checked with the PlantUML server named in the artifact registry (`framework/scripts/render-diagrams.sh`).
 
 ---
 
@@ -120,3 +130,6 @@ A No-Go on a gateway stops the chain: the later gateways start from the code the
 [Milestone 66]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/milestone/66
 [Milestone 67]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/milestone/67
 [ab361ed]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/ab361edf622585f77249d7782a9e2619f7d85cfc
+[MIL-007]: ./milestones/mil-007-framework-baseline.md
+[Milestone 522]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/milestone/522
+[cd6c05d]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/cd6c05d5cbff83ca2e39e22ee73f4b80d20fc103

@@ -53,5 +53,5 @@ Go — the checklist pass found no failing mandatory criterion: 8 criteria pass,
 ---
 
 [MIL-002]: ../../milestones/mil-002-question-class.md
-[QC-PY-001]: ../../../framework/qc/qc-programming-python.md
+[QC-PY-001]: ../../../framework/qc/code/qc-programming-python.md
 [8142317]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/814231725751cc702f911f939b6427268d7a8b85

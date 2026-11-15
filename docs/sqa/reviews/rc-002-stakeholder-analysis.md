@@ -63,6 +63,6 @@ Go — every mandatory criterion of the type's checklist and of QC-LANG-001 pass
 ---
 
 [SA-001]: ../../stakeholder-analysis.md
-[QC-SA-001]: ../../../framework/qc/qc-stakeholder-analysis.md
-[QC-LANG-001]: ../../../framework/qc/qc-language-domain.md
+[QC-SA-001]: ../../../framework/qc/artifacts/qc-stakeholder-analysis.md
+[QC-LANG-001]: ../../../framework/qc/artifacts/qc-language-domain.md
 [ab361ed]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/017-quiz-game-start/commit/ab361edf622585f77249d7782a9e2619f7d85cfc
